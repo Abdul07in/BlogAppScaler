@@ -2,7 +2,6 @@ package com.scaler.blogapp.articles;
 
 import com.scaler.blogapp.users.UserEntity;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Max;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.lang.NonNull;
@@ -14,6 +13,8 @@ import java.util.Date;
 @Getter
 @Setter
 @ToString
+@Builder
+@AllArgsConstructor
 @RequiredArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class ArticleEntity {
@@ -40,7 +41,7 @@ public class ArticleEntity {
     private Date createdAt;
 
     @ManyToOne
-    @JoinColumn(name = "authorId" , nullable = false)
+    @JoinColumn(name = "authorId", nullable = false)
     private UserEntity author;
 
     // TODO : add tags
